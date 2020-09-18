@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvidencijaPPZ.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace EvidencijaPPZ
 {
     public partial class Form1 : Form
     {
+        ServisRepository servisRepo = new ServisRepository();
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.DataSource = servisRepo.getServisReport();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,5 +37,12 @@ namespace EvidencijaPPZ
             var formaAparat = new UnosAparata();
             formaAparat.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = servisRepo.getServisReport();
+        }
+
+       
     }
 }
